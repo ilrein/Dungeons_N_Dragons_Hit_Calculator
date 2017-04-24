@@ -48,6 +48,7 @@
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-tooltip": "^3.3.0",
     "semantic-ui-react": "^0.68.2"
   },
   "scripts": {
