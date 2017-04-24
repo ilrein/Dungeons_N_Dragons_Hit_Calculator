@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { Grid, Button, Modal, Icon } from 'semantic-ui-react';
+import { Grid, Button, Modal, Icon, Header } from 'semantic-ui-react';
 import ReactTooltip from 'react-tooltip';
 
 import styles from './styles.scss';
 import {
+  // attacker tips
   DMG_TIP,
+  DESOLATE_TIP,
   CRIT_PERC_TIP,
   SHOCK_BONUS_DMG_TIP,
   FIRE_BONUS_DMG_TIP,
   COLD_BONUS_DMG_TIP,
+  // defender tips
+  HP_TIP,
+  ARMOR_TIP,
+  EVASION_TIP,
+  SHOCK_RESIS_TIP,
+  FIRE_RESIS_TIP,
+  COLD_RESIS_TIP,
 } from './tips';
 
 import Heading from './ui/Heading';
@@ -72,15 +81,19 @@ class Application extends Component {
           </Grid.Row>
           <Grid.Row columns={2}>
             <Grid.Column>
-              <Heading title="Attacker" as="h4" />
+              <Header as="h2" className={styles.attacker}>
+                Attacker
+              </Header>
             </Grid.Column>
             <Grid.Column>
-              <Heading title="Defender" as="h4" />
+              <Header as="h2" className={styles.defender}>
+                Defender
+              </Header>
             </Grid.Column>
           </Grid.Row>
 
           <Grid.Row columns={2}>
-            <Grid.Column color="violet" data-tip={DMG_TIP}>
+            <Grid.Column color="red" data-tip={DMG_TIP}>
               <Input
                 label="DMG"
                 color="black"
@@ -88,7 +101,25 @@ class Application extends Component {
               />
             </Grid.Column>
 
-            <Grid.Column color="teal">
+            <Grid.Column color="blue" data-tip={HP_TIP}>
+              <Input
+                label="HP"
+                color="black"
+                onChange={(e) => this.setStat('hp', e.target.value)}
+              />
+            </Grid.Column>
+          </Grid.Row>
+
+          <Grid.Row columns={2}>
+            <Grid.Column color="red" data-tip={DESOLATE_TIP}>
+              <Input
+                label="Desolate"
+                color="black"
+                onChange={(e) => this.setStat('desolate', e.target.value)}
+              />
+            </Grid.Column>
+
+            <Grid.Column color="blue" data-tip={ARMOR_TIP}>
               <Input
                 label="ARMOR"
                 color="black"
@@ -98,14 +129,14 @@ class Application extends Component {
           </Grid.Row>
 
           <Grid.Row columns={2}>
-            <Grid.Column color="violet" data-tip={CRIT_PERC_TIP}>
+            <Grid.Column color="red" data-tip={CRIT_PERC_TIP}>
               <Input
                 label="CRIT %"
                 color="black"
               />
             </Grid.Column>
 
-            <Grid.Column color="teal">
+            <Grid.Column color="blue" data-tip={EVASION_TIP}>
               <Input
                 label="EVASION"
                 color="black"
@@ -114,49 +145,49 @@ class Application extends Component {
           </Grid.Row>
 
           <Grid.Row columns={2}>
-            <Grid.Column color="violet" data-tip={SHOCK_BONUS_DMG_TIP}>
+            <Grid.Column color="red" data-tip={SHOCK_BONUS_DMG_TIP}>
               <Input
                 label="SHOCK"
-                color="yellow"
+                color="black"
               />
             </Grid.Column>
 
-            <Grid.Column color="teal">
+            <Grid.Column color="blue" data-tip={SHOCK_RESIS_TIP}>
               <Input
                 label="SHOCK RESIS"
-                color="yellow"
+                color="black"
               />
             </Grid.Column>
           </Grid.Row>
 
           <Grid.Row columns={2}>
-            <Grid.Column color="violet" data-tip={FIRE_BONUS_DMG_TIP}>
+            <Grid.Column color="red" data-tip={FIRE_BONUS_DMG_TIP}>
               <Input
                 label="FIRE"
-                color="red"
+                color="black"
               />
             </Grid.Column>
 
-            <Grid.Column color="teal">
+            <Grid.Column color="blue" data-tip={FIRE_RESIS_TIP}>
               <Input
                 label="FIRE RESIS"
-                color="red"
+                color="black"
               />
             </Grid.Column>
           </Grid.Row>
 
           <Grid.Row columns={2}>
-            <Grid.Column color="violet" data-tip={COLD_BONUS_DMG_TIP}>
+            <Grid.Column color="red" data-tip={COLD_BONUS_DMG_TIP}>
               <Input
                 label="COLD"
-                color="blue"
+                color="black"
               />
             </Grid.Column>
 
-            <Grid.Column color="teal">
+            <Grid.Column color="blue" data-tip={COLD_RESIS_TIP}>
               <Input
                 label="COLD RESIS"
-                color="blue"
+                color="black"
               />
             </Grid.Column>
           </Grid.Row>
